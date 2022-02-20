@@ -1,18 +1,8 @@
-![Scala CI](https://github.com/hieuwu/simple-note-application/workflows/Scala%20CI/badge.svg)
+This is a fork of the sample app from https://github.com/hieuwu/simple-note-application.
+
+# Demo Application that demos adding Gumstack to your Android app.
+
 # Overview:
-In this project, I used some techniques at entry level in Android application development. This is suitable for students or people who are new to Android.
-# With this project, you would know how to:
-- Pass object data between screens
-- Save and load object data from application to local storage
-- Basic UI elements
-- Implement the search feature
+For detailed instructions on integrating Gumstack with your Android app, please follow the [instructions here](https://gumstackcom.notion.site/Gumstack-for-Android-393d3356b4074651ab995edbdc5849b0).
 
-# What I learned:
-
-- Intent
-- Shared prereferences
-- Filter in ListView
-- Context menu
-
-# How to build:
-Clone this repository into your local and open with Android Studio.
+In this sample app, you'll see that Gumstack is launched on click of a Floating Action Button.

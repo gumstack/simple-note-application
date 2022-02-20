@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -25,10 +26,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.gumstack.android.sdk.Gumstack;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.android.Simple Note application.Extra.Object";
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new NoteAdapter(this,note_details);
         listView.setAdapter(adapter);
-
+        Gumstack.initialize(this, "API_TOKEN_HERE");
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -91,6 +94,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, TEXT_REQUEST);
             }
         });
+
+        FloatingActionButton fgsb = findViewById(R.id.fgs);
+        fgsb.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                HashMap<String, Object> params = new HashMap();
+                HashMap<String, Object> contactParams = new HashMap();
+                contactParams.put("email", "contact@example.com");
+                contactParams.put("phone_number", "+919988776655");
+                params.put("contact", contactParams);
+//    val agentParams = HashMap<String, Any>()
+//    agentParams.put("email", "test@example.com")
+//    params.put("agent", agentParams);
+                Gumstack.client().launch(params);
+            }
+        });
+
         registerForContextMenu(listView);
     }
 

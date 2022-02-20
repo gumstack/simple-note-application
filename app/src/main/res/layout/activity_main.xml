@@ -28,6 +28,21 @@
     </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fgs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="120dp"
+        android:background="@android:color/darker_gray"
+        android:backgroundTint="#4CAF50"
+        android:clickable="true"
+        android:focusable="true"
+        android:rotationX="180"
+        android:rotationY="180"
+        app:srcCompat="@android:drawable/ic_menu_call" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
